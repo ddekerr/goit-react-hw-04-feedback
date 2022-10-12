@@ -11,23 +11,23 @@ export const Statistics = ({
   return (
     <ul>
       <StatisticItem>
-        <p>Good</p>
+        <p>Good:</p>
         <span>{good}</span>
       </StatisticItem>
       <StatisticItem>
-        <p>Neutral</p>
+        <p>Neutral:</p>
         <span>{neutral}</span>
       </StatisticItem>
       <StatisticItem>
-        <p>Bad</p>
+        <p>Bad:</p>
         <span>{bad}</span>
       </StatisticItem>
       <StatisticItem>
-        <p>Total</p>
+        <p>Total:</p>
         <span>{total}</span>
       </StatisticItem>
       <StatisticItem>
-        <p>Positive Feedback</p>
+        <p>Positive Feedback:</p>
         <span>{positivePercentage}%</span>
       </StatisticItem>
     </ul>
@@ -39,5 +39,5 @@ Statistics.propTypes = {
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
-  positivePercentage: PropTypes.number.isRequired,
+  // positivePercentage: PropTypes.number.isRequired,
 }
