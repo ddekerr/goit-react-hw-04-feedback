@@ -1,4 +1,5 @@
 import shortid from 'shortid';
+import PropTypes from 'prop-types';
 import { OptionList, OptionItem, OptionButton } from './FeedbackOptions.styled';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
@@ -13,4 +14,9 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
       ))}
     </OptionList>
   );
+};
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
