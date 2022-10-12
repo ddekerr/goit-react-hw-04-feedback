@@ -1,5 +1,8 @@
 import { Component } from 'react';
 import { Wrapper } from './App.styled';
+import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
+
+const feedbackOptions = ['good', 'neutral', 'bad'];
 
 export class App extends Component {
   state = {
@@ -8,11 +11,11 @@ export class App extends Component {
     bad: 0,
   };
 
-  incrementStateValue(stateKey) {
+  leaveFeedback = stateKey => () => {
     this.setState(prevState => {
       return { [stateKey]: prevState[stateKey] + 1 };
     });
-  }
+  };
 
   countTotalFeedback() {
     return this.state.good + this.state.neutral + this.state.bad;
@@ -30,35 +33,10 @@ export class App extends Component {
   render() {
     return (
       <Wrapper>
-        <section>
-          <h2>Please leave feedback</h2>
-          <ul>
-            <li>
-              <button
-                type="button"
-                onClick={() => this.incrementStateValue('good')}
-              >
-                Good
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                onClick={() => this.incrementStateValue('neutral')}
-              >
-                Neutral
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                onClick={() => this.incrementStateValue('bad')}
-              >
-                Bad
-              </button>
-            </li>
-          </ul>
-        </section>
+        <FeedbackOptions
+          options={feedbackOptions}
+          onLeaveFeedback={this.leaveFeedback}
+        />
         <section>
           <h2>Statistics</h2>
           <ul>
