@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Wrapper } from './App.styled';
+import { Section } from 'components/Section/Section';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Statistics } from 'components/Statistics/Statistics';
 
@@ -33,19 +34,28 @@ export class App extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
+
     return (
       <Wrapper>
-        <FeedbackOptions
-          options={feedbackOptions}
-          onLeaveFeedback={this.leaveFeedback}
-        />
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbackPercentage()}
-        />
+        <Section title="Please Leave feedback">
+          <FeedbackOptions
+            options={feedbackOptions}
+            onLeaveFeedback={this.leaveFeedback}
+          />
+        </Section>
+        {good || neutral || bad ? (
+          <Section title="Statistics">
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          </Section>
+        ) : (
+          ''
+        )}
       </Wrapper>
     );
   }
