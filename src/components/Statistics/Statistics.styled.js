@@ -9,4 +9,3 @@ export const StatisticItem = styled.li`
     margin-bottom: 10px;
   }
 `;
-
