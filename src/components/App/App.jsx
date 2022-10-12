@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { Wrapper } from './App.styled';
 import { Section } from 'components/Section/Section';
+import { Notification } from 'components/Notification/Notification';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Statistics } from 'components/Statistics/Statistics';
 
@@ -54,7 +55,7 @@ export class App extends Component {
             />
           </Section>
         ) : (
-          ''
+          <Notification message="There is no feedback" />
         )}
       </Wrapper>
     );
