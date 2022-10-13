@@ -5,8 +5,6 @@ import { Notification } from 'components/Notification/Notification';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Statistics } from 'components/Statistics/Statistics';
 
-const feedbackOptions = ['good', 'neutral', 'bad'];
-
 export class App extends Component {
   state = {
     good: 0,
@@ -38,7 +36,7 @@ export class App extends Component {
       <Wrapper>
         <Section title="Please Leave feedback">
           <FeedbackOptions
-            options={feedbackOptions}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.leaveFeedback}
           />
         </Section>
