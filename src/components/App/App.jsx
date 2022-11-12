@@ -13,13 +13,13 @@ export const App = () => {
   const [bad, setBad] = useState(0);
 
   const leaveFeedback = option => () => {
-    if(option === 'good') {
+    if (option === 'good') {
       setGood(good + 1);
     }
-    if(option === 'neutral') {
+    if (option === 'neutral') {
       setNeutral(neutral + 1);
     }
-    if(option === 'bad') {
+    if (option === 'bad') {
       setBad(bad + 1);
     }
   };
